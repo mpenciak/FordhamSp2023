@@ -9,4 +9,4 @@ tasks:
   - init: |
       lake exe cache get
   - command: |
-      sudo apt-get install gcc
+      sudo apt-get --assume-yes install gcc
