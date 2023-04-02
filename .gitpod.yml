@@ -8,3 +8,5 @@ vscode:
 tasks:
   - init: |
       lake exe cache get
+  - command: |
+      sudo apt-get install gcc
