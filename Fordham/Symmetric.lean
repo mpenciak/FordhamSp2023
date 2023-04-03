@@ -50,7 +50,7 @@ def lxor (l₁ l₂ : List Bool) : List Bool :=
 /-
 Lets use `Nat`s instead, because they are faster and easier to work with
 -/
-instance(priority := 100000000) : Repr Nat where
+scoped instance(priority := 100000000) : Repr Nat where
   reprPrec n _ := binaryRepr n
 
 
@@ -78,6 +78,8 @@ def decryptedtext := decrypt my_key ciphertext
 /-
 One major downside of OTP is that the keys have to be the same size as the plaintext messages!
 -/
+
+-- It is very good at securing 
+def matejs_secret := 0b1100011111011100100111000110111
+
 end Hidden
-
-
