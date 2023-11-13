@@ -1,4 +1,3 @@
-import YatimaStdLib.Zmod
 import Fordham.Util
 
 /-!
@@ -20,7 +19,7 @@ structure CipherText where
   hiddenKey : Nat     -- r
   hiddenMessage : Nat -- t
 
-def encrypt (pk : PublicKey) (randomness : Nat) (message : Nat) : CipherText := 
+def encrypt (pk : PublicKey) (randomness : Nat) (message : Nat) : CipherText :=
   let ⟨p, a, b⟩ := pk
   let k := randomness
 {

@@ -1,13 +1,13 @@
 import Lake
 open Lake DSL
 
-package fordham 
+package fordham
 
 require mathlib from git
-  "https://github.com/leanprover-community/mathlib4.git"
+  "https://github.com/leanprover-community/mathlib4.git" @ "v4.2.0"
 
-require YatimaStdLib from git
-  "https://github.com/lurk-lab/YatimaStdLib.lean" @ "main"
+require ffc from git
+  "https://github.com/mpenciak/FFaCiL" @ "main"
 
 @[default_target]
-lean_lib Fordham 
+lean_lib Fordham

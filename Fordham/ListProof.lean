@@ -1,5 +1,5 @@
--- import YatimaStdLib.Benchmark
--- import YatimaStdLib.MultilinearPolynomial
+import Fordham.Util
+import FFC.MSM
 
 /-!
 # Lean 4 as a programming language
@@ -13,8 +13,8 @@ https://leanprover.github.io/functional_programming_in_lean/
 -/
 
 -- Here's an example of what some Lean 4 code can look like:
--- #check Benchmark.RandomComparison.generateInputs
--- #check MultilinearPolynomial.eval
+#check toByteArrayCore
+#check pippengerMSM
 
 open List (reverse length)
 
@@ -28,8 +28,10 @@ open List (reverse length)
 
 -- Lists
 def ex1 := [39, 1, 20, 39, 5, 77]
+def ex2 := ["hi", "everyone"]
 
 #check ex1
+#check ex2
 
 -- And all the functions you'd expect to manipulate these objects
 #eval length ex1
@@ -45,15 +47,18 @@ To prove this theorem, we will use a few known lemmas (these have been previousl
 
 `length_nil : length [] = 0`
 `length_cons : length (a :: as) = Nat.succ (length as)`
+a :: as = [a, ...]
 `length_append : length (as ++ bs) = length as + length bs`
-`reverse_cons : reverse (a :: as) = as ++ [a]`
+`reverse_cons : reverse (a :: as) = (reverse as) ++ [a]`
 -/
-#check List.length_nil
+
+#check List.reverse_cons
+
+#check Nat
 
 open List in
-def length_reverse {α : Type _} (l : List α) : length (reverse l) = length l := by
-  induction l with
-  | nil => rfl
-  | cons a l' ih => 
+theorem length_reverse {α : Type _} (l : List α) : length (reverse l) = length l := by
+  induction l
+  · rfl
+  · rename_i head tail ih
     rw [reverse_cons, length_append, length_cons, length_cons, length_nil, ih]
-    

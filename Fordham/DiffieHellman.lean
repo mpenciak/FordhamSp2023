@@ -1,4 +1,4 @@
-import YatimaStdLib.Nat
+import FFC.Util.Nat
 
 /-!
 # Asymmetric cryptography
@@ -7,7 +7,7 @@ How can Alice and Bob derive a shared secret, if a malicious third party (Carol)
 in on every single message they send back and forth?
 
 The key idea is that of a **trapdoor function**. A function `f : α → β` which is efficient to compute
-on a given input `a : α`, but difficult to invert without any extra information. 
+on a given input `a : α`, but difficult to invert without any extra information.
 
 There are a number of trapdoor functions, in this section we will focus on the **discrete logarithm**
 problem.
